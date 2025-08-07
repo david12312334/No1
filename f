@@ -4680,10 +4680,6 @@ function library:CreateSettingsTab(menu)
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId);
     end})
 
-    mainSection:AddButton({text = 'Copy Join Script', callback = function()
-        setclipboard(([[game:GetService("TeleportService"):TeleportToPlaceInstance(%s, "%s")]]):format(game.PlaceId, game.JobId))
-    end})
-
     mainSection:AddButton({text = 'Unload', confirm = true, callback = function()
         library:Unload();
     end})
@@ -4724,5 +4720,6 @@ end
 
 getgenv().library = library
 return library
+
 
 
