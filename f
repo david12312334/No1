@@ -4482,9 +4482,7 @@ function library:init()
         self.watermark = {
             objects = {};
             text = {
-                {"informant.wtf", true},
-                {'0 fps', true},
-                {'0ms', true},
+                {"Oxy.wtf", true},
             };
             lock = 'custom';
             position = newUDim2(0,0,0,0);
@@ -4730,3 +4728,4 @@ end
 
 getgenv().library = library
 return library
+
