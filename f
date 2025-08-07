@@ -4484,8 +4484,6 @@ function library:init()
             objects = {};
             text = {
                 {"Oxy.wtf", true},
-                {"V"..getgenv().Config.Version, true},
-                {getgenv().luaguardvars.DiscordName, true},
                 {'0 fps', true},
                 {'0ms', true},
             };
@@ -4726,4 +4724,5 @@ end
 
 getgenv().library = library
 return library
+
 
