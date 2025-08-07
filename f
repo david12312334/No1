@@ -4563,7 +4563,7 @@ function library:init()
             objs.text = utility:Draw('Text', {
                 Position = newUDim2(.5,0,0,2);
                 ThemeColor = 'Primary Text';
-                Text = 'Watermark Text';
+                Text = 'Oxy.wtf | Roblox | 2025';
                 Size = 13;
                 Font = 2;
                 ZIndex = z+1;
@@ -4728,4 +4728,5 @@ end
 
 getgenv().library = library
 return library
+
 
