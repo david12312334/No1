@@ -4563,34 +4563,6 @@ function library:init()
                 Parent = objs.background;
             })
 
-            objs.text = utility:Draw('Text', {
-                Position = newUDim2(.5,0,0,2);
-                ThemeColor = 'Primary Text';
-                Text = 'Oxy.wtf | Roblox';
-                Size = 13;
-                Font = 2;
-                ZIndex = z+1;
-                Outline = true;
-                Center = true;
-                Parent = objs.background;
-            })
-
-        end
-    end
-
-    local lasttick = tick();
-    utility:Connection(runservice.RenderStepped, function(step)
-        library.stats.fps = floor(1/step)
-        library.stats.ping = stats.Network.ServerStatsItem["Data Ping"]:GetValue()
-        library.stats.sendkbps = stats.DataSendKbps
-        library.stats.receivekbps = stats.DataReceiveKbps
-
-        if (tick()-lasttick)*1000 > library.watermark.refreshrate then
-            lasttick = tick()
-            library.watermark:Update()
-        end
-    end)
-
     self.keyIndicator = self.NewIndicator({title = 'Keybinds', pos = newUDim2(0,15,0,325), enabled = false});
     
     self.targetIndicator = self.NewIndicator({title = 'Target Info', pos = newUDim2(0,15,0,350), enabled = false});
@@ -4684,14 +4656,6 @@ function library:CreateSettingsTab(menu)
         library:Unload();
     end})
 
-    mainSection:AddSeparator({text = 'Watermark'})
-    mainSection:AddToggle({text = 'Enabled', flag = 'watermark_enabled'});
-    mainSection:AddList({text = 'Position', flag = 'watermark_pos', selected = 'Custom', values = {'Top', 'Top Left', 'Top Right', 'Bottom Left', 'Bottom Right', 'Custom'}, callback = function(val)
-        library.watermark.lock = val;
-    end})
-    mainSection:AddSlider({text = 'Custom X', flag = 'watermark_x', suffix = '%', value = 6.1, min = 0, max = 100, increment = .1});
-    mainSection:AddSlider({text = 'Custom Y', flag = 'watermark_y', suffix = '%', value = 1.2, min = 0, max = 100, increment = .1});
-
     local themeStrings = {};
     for _,v in next, library.themes do
         table.insert(themeStrings, v.name)
@@ -4720,6 +4684,7 @@ end
 
 getgenv().library = library
 return library
+
 
 
 
