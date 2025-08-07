@@ -4477,12 +4477,12 @@ function library:init()
         })
 
     end
-    -- Watermark
+        -- Watermark
     do
         self.watermark = {
             objects = {};
             text = {
-                {"Oxy.wtf", true},
+                {"informant.wtf", true},
                 {'0 fps', true},
                 {'0ms', true},
             };
@@ -4565,7 +4565,7 @@ function library:init()
             objs.text = utility:Draw('Text', {
                 Position = newUDim2(.5,0,0,2);
                 ThemeColor = 'Primary Text';
-                Text = 'Oxy.wtf | Roblox | 2025';
+                Text = 'Watermark Text';
                 Size = 13;
                 Font = 2;
                 ZIndex = z+1;
@@ -4598,6 +4598,7 @@ function library:init()
     self.targetHealth = self.targetIndicator:AddValue({key = 'Health   :', value = '0'})
     self.targetDistance = self.targetIndicator:AddValue({key = 'Distance :', value = '0m'})
     self.targetTool = self.targetIndicator:AddValue({key = 'Weapon   :', value = 'nil'})
+    
     self:SetTheme(library.theme);
     self:SetOpen(true);
     self.hasInit = true
@@ -4655,7 +4656,7 @@ function library:CreateSettingsTab(menu)
         library:SetOpen(not library.open)
     end});
 
-    mainSection:AddToggle({text = 'Disable Movement If Open', flag = 'disablemenumovement', callback = function(bool)
+    mainSection:AddToggle({text = 'Movement off if open', flag = 'disablemenumovement', callback = function(bool)
         if bool and library.open then
             actionservice:BindAction(
                 'FreezeMovement',
